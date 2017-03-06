@@ -27,8 +27,8 @@ add_library(Catch INTERFACE)
 target_include_directories(Catch INTERFACE dependencies/catch)
 
 #setup docs
-add_custom_target(doc DEPENDS docAProject docAnotherProject)
+#doc targets are the projectname prefixed with "doc", this is autmatically generated
+add_custom_target(doc DEPENDS docAProject)
 
 #include all projects
 add_subdirectory(AProject)
-add_subdirectory(AnotherProject)
