@@ -1,6 +1,6 @@
-[submodule "cinder"]
-	path = dependencies
-	url = git://github.com/cinder/cinder.git
-[submodule "catch"]
-	path = dependencies
-	url = git://github.com/philsquared/Catch.git
+[submodule "dependencies/cinder"]
+	path = dependencies/cinder
+	url = https://github.com/cinder/Cinder.git
+[submodule "dependencies/catch"]
+	path = dependencies/catch
+	url = https://github.com/philsquared/Catch.git
