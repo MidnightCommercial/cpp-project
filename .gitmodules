@@ -1,0 +1,6 @@
+[submodule "dependencies/cinder"]
+	path = dependencies/cinder
+	url = https://github.com/cinder/Cinder.git
+[submodule "dependencies/catch"]
+	path = dependencies/catch
+	url = https://github.com/philsquared/Catch.git
