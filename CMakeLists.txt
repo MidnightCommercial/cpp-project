@@ -29,7 +29,7 @@ target_include_directories(Catch INTERFACE ${CATCH_INCLUDE_DIR})
 
 #setup docs
 #doc targets are the projectname prefixed with "doc", this is autmatically generated
-add_custom_target(doc DEPENDS docAProject)
+add_custom_target(doc)
 
 #include all projects
-add_subdirectory(AProject)
+add_subdirectory(projects)
