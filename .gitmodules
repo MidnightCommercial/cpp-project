@@ -1,0 +1,3 @@
+[submodule "dependencies/catch"]
+	path = dependencies/catch
+	url = https://github.com/philsquared/Catch.git

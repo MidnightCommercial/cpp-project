@@ -22,13 +22,14 @@ if(NOT APP_MSW)
 	enable_testing() 
 endif()
 
+set(CATCH_INCLUDE_DIR dependencies/catch/single_include CACHE INTERNAL "Path to include folder for Catch")
 #setup Catch cpp testing framework
 add_library(Catch INTERFACE)
-target_include_directories(Catch INTERFACE dependencies/catch)
+target_include_directories(Catch INTERFACE ${CATCH_INCLUDE_DIR})
 
 #setup docs
-add_custom_target(doc DEPENDS docAProject docAnotherProject)
+#doc targets are the projectname prefixed with "doc", this is autmatically generated
+add_custom_target(doc DEPENDS docAProject)
 
 #include all projects
 add_subdirectory(AProject)
-add_subdirectory(AnotherProject)
