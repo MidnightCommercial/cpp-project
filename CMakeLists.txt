@@ -1,12 +1,34 @@
-cmake_minimum_required(VERSION 2.8.12)
+cmake_minimum_required(VERSION 3.0)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 
 project("CppProject")
 
-enable_testing() 
+if( CMAKE_SYSTEM_NAME MATCHES "Darwin" )
+	set( APP_TARGET "macosx" )
+	set( APP_MACOSX TRUE )
+elseif( CMAKE_SYSTEM_NAME MATCHES "Linux" )
+	set( APP_TARGET "linux" )
+	set( APP_LINUX TRUE )
+elseif( CMAKE_SYSTEM_NAME MATCHES "Windows" )
+	set( APP_TARGET "msw" )
+	set( APP_MSW TRUE )
+else()
+	message( FATAL_ERROR "APP_TARGET not defined, and no default for platform '${CMAKE_SYSTEM_NAME}.'" )
+endif()
 
-#Catch cpp testing framework
+message("-- App is set to ${APP_TARGET}.")
+
+if(NOT APP_MSW)
+	enable_testing() 
+endif()
+
+#setup Catch cpp testing framework
 add_library(Catch INTERFACE)
 target_include_directories(Catch INTERFACE dependencies/catch)
 
+#setup docs
+add_custom_target(doc DEPENDS docAProject docAnotherProject)
+
+#include all projects
 add_subdirectory(AProject)
+add_subdirectory(AnotherProject)
