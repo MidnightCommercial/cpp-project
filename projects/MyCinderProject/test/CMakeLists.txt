@@ -4,7 +4,10 @@ file(GLOB TEST_FILES
     "../src/*.cpp"
 )
 
-set(TESTS_APP_NAME ${PROJECT_NAME}-tests)
+#becasue cinder adds the app name in ci_make_app :/
+set( CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/${APP_NAME} )
+
+set(TESTS_APP_NAME ${APP_NAME}-tests)
 add_executable(${TESTS_APP_NAME} ${TEST_FILES})
 target_link_libraries(${TESTS_APP_NAME} Catch)
 
