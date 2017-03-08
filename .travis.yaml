@@ -1,0 +1,23 @@
+language: cpp
+sudo: required
+git:
+  depth: 1
+branches:
+  only:
+  - single-proj
+os: linux
+dist: trusty
+compiler: clang
+
+install:
+- echo $LANG
+- echo $LC_ALL
+- if [ $TRAVIS_OS_NAME == linux ]; then ./scripts/install-dependencies.sh; fi
+
+script:
+- if [ $TRAVIS_OS_NAME == linux ]; then ./scripts/run-tests.sh; fi
+
+env: 
+- TARGET="trusty"
+- DESCRIPTION="Ubuntu Trusty build/test via CMake"
+- TOOL="cmake" 
