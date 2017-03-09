@@ -1,6 +1,7 @@
 language: cpp
 sudo: required
 git:
+  submodules: false
   depth: 1
 branches:
   only:
@@ -13,10 +14,8 @@ before_install:
 - chmod +x ./scripts/install-dependencies.sh;
 
 install:
-- echo $LANG
-- echo $LC_ALL
 - if [ $TRAVIS_OS_NAME == linux ]; then 
-    ./scripts/install-dependencies.sh;
+    scripts/install-dependencies.sh;
   fi
 
 before_script:
@@ -24,10 +23,5 @@ before_script:
 
 script:
 - if [ $TRAVIS_OS_NAME == linux ]; then
-    ./scripts/run-tests.sh; 
+    scripts/run-tests.sh; 
   fi
-
-env: 
-- TARGET="trusty"
-- DESCRIPTION="Ubuntu Trusty build/test via CMake"
-- TOOL="cmake" 
