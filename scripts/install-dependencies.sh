@@ -1,3 +1,3 @@
 #!/bin/sh
-set -ex
-git submodule update --init --recursive
+sudo set -ex
+sudo git submodule update --init --recursive

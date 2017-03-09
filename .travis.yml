@@ -12,10 +12,10 @@ compiler: clang
 install:
 - echo $LANG
 - echo $LC_ALL
-- if [ $TRAVIS_OS_NAME == linux ]; then ./scripts/install-dependencies.sh; fi
+- if [ $TRAVIS_OS_NAME == linux ]; then scripts/install-dependencies.sh; fi
 
 script:
-- if [ $TRAVIS_OS_NAME == linux ]; then ./scripts/run-tests.sh; fi
+- if [ $TRAVIS_OS_NAME == linux ]; then scripts/run-tests.sh; fi
 
 env: 
 - TARGET="trusty"
